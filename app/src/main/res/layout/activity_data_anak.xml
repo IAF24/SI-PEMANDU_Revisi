@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="NIK Orang Tua"
+                android:text="NIK Anak"
                 android:textColor="@color/ijo"
                 android:textStyle="bold"
                 android:textSize="18sp" />
@@ -46,6 +46,34 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/abu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Nama Anak"
+                android:textColor="@color/ijo"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/namaAnak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Jenis Kelamin"
+                android:textColor="@color/ijo"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/jk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,12 +105,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Alamat"
+                android:text="Kelurahan"
                 android:textColor="@color/ijo"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/alamat"
+                android:id="@+id/kelurahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -90,15 +118,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Nama Anak"
+                android:text="RW"
                 android:textColor="@color/ijo"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/namaAnak"
-                android:layout_width="match_parent"
+                android:id="@+id/rw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp" />
+                android:layout_marginTop="10dp"
+                android:text="RT"
+                android:textColor="@color/ijo"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/oke"

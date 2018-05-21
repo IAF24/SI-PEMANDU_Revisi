@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.input_data_kesehatan_anak">
+    tools:context="id.tiregdev.si_pemandu.Activity.InputNfcActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,70 +28,39 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Anak"
+                android:text="No NFC"
                 android:textColor="@color/ijo"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/namaAnak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
+                android:id="@+id/noNFC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Umur Anak"
-                android:textColor="@color/ijo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/umur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+                />
 
             <EditText
+                android:id="@+id/nik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/penyakit"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Penyakit/Masalah"
-                android:padding="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tindakan"
-                android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Tindakan/Rujukan/Umpan Balik"
-                android:padding="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ket"
-                android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Keterangan"
-                android:padding="10dp"/>
+                android:hint="NIK"
+                android:padding="10dp" />
 
             <Button
-                android:id="@+id/save"
+                android:id="@+id/savenfc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/ijo"
                 android:text="SAVE"
                 android:textColor="@color/putih"
-                android:textSize="16sp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="20dp"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
-
     </LinearLayout>
+
 
 </ScrollView>

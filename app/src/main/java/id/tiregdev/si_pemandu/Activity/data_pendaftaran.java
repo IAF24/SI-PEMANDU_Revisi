@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,12 +30,10 @@ public class data_pendaftaran extends AppCompatActivity {
 
     private TextView  tgl;
     private TextView  tpa;
-    private TextView  tpab;
     private TextView  tl;
     private TextView  tp;
     private TextView  tudk;
     private TextView  tudb;
-    private TextView  tuds;
     private TextView  tudv;
     private TextView  tudi;
     private TextView  tudg;
@@ -67,31 +66,26 @@ public class data_pendaftaran extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
 //                    boolean error = jObj.getBoolean("error");
 //                    if (!error) {
+                        JSONObject jsonobject = jObj.getJSONObject("info");
 
-                    String tgl_ = jObj.getString("tgl");
-                    String tpas = jObj.getString("total_pend_anak");
-                    String tpabs = jObj.getString("total_pend_anak_baru");
-                    String tls  = jObj.getString("total_laki-laki");
-                    String tps = jObj.getString("total_perempuan");
-                    String tudks  = jObj.getString("total_update_kms");
-                    String tudbs  = jObj.getString("total_update_kbbl");
-                    String tudss  = jObj.getString("total_update_sdidtk");
-                    String tudvs  = jObj.getString("total_update_vita");
-                    String tudis  = jObj.getString("total_update_imunisasi");
-                    String tudgs  = jObj.getString("total_update_gizi");
-                    String tudkas  = jObj.getString("total_kesehatan_anak");
-                    tgl.setText(tgl_);
-                    tpa.setText(tpas);
-                    tpab.setText(tpabs);
-                    tl.setText(tls);
-                    tp.setText(tps);
-                    tudk.setText(tudks);
-                    tudb.setText(tudbs);
-                    tuds.setText(tudss);
-                    tudv.setText(tudvs);
-                    tudi.setText(tudis);
-                    tudg.setText(tudgs);
-                    tudka.setText(tudkas);
+                        String tpas = jsonobject.getString("total_pendaftaran");
+                        String tls = jsonobject.getString("total_lk");
+                        String tps = jsonobject.getString("total_perempuan");
+                        String tudks = jsonobject.getString("total_update_kms");
+                        String tudbs = jsonobject.getString("total_update_kbbl");
+                        String tudvs = jsonobject.getString("total_update_vita");
+                        String tudis = jsonobject.getString("total_update_munisasi");
+                        String tudgs = jsonobject.getString("total_update_gizi");
+                        String tudkas = jsonobject.getString("total_kesehatan_anak");
+                        tpa.setText(tpas);
+                        tl.setText(tls);
+                        tp.setText(tps);
+                        tudk.setText(tudks);
+                        tudb.setText(tudbs);
+                        tudv.setText(tudvs);
+                        tudi.setText(tudis);
+                        tudg.setText(tudgs);
+                        tudka.setText(tudkas);
 
 
 //                    } else {
@@ -142,16 +136,15 @@ public class data_pendaftaran extends AppCompatActivity {
     private void findViews() {
         tgl = (TextView)findViewById( R.id.tgl );
         tpa = (TextView)findViewById( R.id.totalPendaftaranAnak );
-        tpab = (TextView)findViewById( R.id.totalPendaftaranAnakBaru );
         tl = (TextView)findViewById( R.id.totalLaki );
         tp = (TextView) findViewById( R.id.totalCewe );
         tudk = (TextView)findViewById( R.id.dataKMS );
         tudb = (TextView)findViewById( R.id.dataKBBL );
-        tuds = (TextView)findViewById( R.id.dataSDIDTK );
         tudv = (TextView)findViewById( R.id.dataVitA );
         tudi = (TextView)findViewById( R.id.dataImunisasi );
         tudg = (TextView)findViewById( R.id.dataGizi );
         tudka = (TextView)findViewById( R.id.dataKesAnak );
+        tgl.setText(getIntent().getExtras().getString("tgls"));
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

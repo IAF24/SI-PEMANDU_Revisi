@@ -13,9 +13,11 @@ import id.tiregdev.si_pemandu.R;
 
 public class modul extends AppCompatActivity {
 
-    LinearLayout kms, vita, imunisasi, sdidtk, gizi, kbbl, kesAnak, kesimpulan;
+    LinearLayout kms, vita, imunisasi,  gizi, kbbl, kesAnak, kesimpulan;
 
     String id_ank;
+    String nam;
+    String tl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,8 @@ public class modul extends AppCompatActivity {
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         id_ank  = (getIntent().getExtras().getString("idanak"));
+        nam = (getIntent().getExtras().getString("na"));
+        tl = (getIntent().getExtras().getString("tgla"));
         findID();
     }
 
@@ -43,8 +47,7 @@ public class modul extends AppCompatActivity {
         kms = findViewById(R.id.kms);
         vita = findViewById(R.id.vita);
         imunisasi = findViewById(R.id.imunisasi);
-        sdidtk = findViewById(R.id.sdidtk);
-        gizi = findViewById(R.id.gizi);
+//        gizi = findViewById(R.id.gizi);
         kbbl = findViewById(R.id.kbbl);
         kesAnak = findViewById(R.id.kesehatanAnak);
         kesimpulan = findViewById(R.id.kesimpulan);
@@ -53,6 +56,9 @@ public class modul extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(modul.this, kms_history.class);
+                i.putExtra("idankms", id_ank);
+                i.putExtra("nama", nam);
+                i.putExtra("tll", tl);
                 startActivity(i);
             }
         });
@@ -61,6 +67,9 @@ public class modul extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(modul.this, vita_history.class);
+                i.putExtra("idankvita", id_ank);
+                i.putExtra("namavita", nam);
+                i.putExtra("tlv", tl);
                 startActivity(i);
             }
         });
@@ -69,39 +78,43 @@ public class modul extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(modul.this, imunisasi_history.class);
+                i.putExtra("idankimun", id_ank);
+                i.putExtra("namaimun", nam);
+                i.putExtra("tlm", tl);
                 startActivity(i);
             }
         });
 
-        sdidtk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(modul.this, sdidtk_history.class);
-                startActivity(i);
-            }
-        });
 
         kbbl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(modul.this, kbbl_history.class);
+                i.putExtra("idankbl", id_ank);
+                i.putExtra("namabl", nam);
+                i.putExtra("tlk", tl);
                 startActivity(i);
             }
         });
 
-        gizi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(modul.this, gizi_history.class);
-                i.putExtra("idank", id_ank);
-                startActivity(i);
-            }
-        });
+//        gizi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(modul.this, gizi_history.class);
+//                i.putExtra("idank", id_ank);
+//                i.putExtra("namagi", nam);
+//                i.putExtra("tlg", tl);
+//                startActivity(i);
+//            }
+//        });
 
         kesAnak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(modul.this, data_kesehatan_anak.class);
+                i.putExtra("idanka", id_ank);
+                i.putExtra("namaka", nam);
+                i.putExtra("tla", tl);
                 startActivity(i);
             }
         });
@@ -110,6 +123,7 @@ public class modul extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(modul.this, kesimpulan.class);
+                i.putExtra("idankp", id_ank);
                 startActivity(i);
             }
         });

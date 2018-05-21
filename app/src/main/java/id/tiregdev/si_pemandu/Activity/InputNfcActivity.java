@@ -1,5 +1,6 @@
 package id.tiregdev.si_pemandu.Activity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,7 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,8 +24,8 @@ import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,100 +33,64 @@ import java.util.Map;
 import id.tiregdev.si_pemandu.R;
 import id.tiregdev.si_pemandu.utils.AppConfig;
 import id.tiregdev.si_pemandu.utils.AppControl;
-import id.tiregdev.si_pemandu.utils.SQLiteHandler;
 
-public class input_gizi extends AppCompatActivity  implements View.OnClickListener {
-
-    private TextView nama_anak;
-    private TextView usia;
-    private EditText gizi;
-    private Button save;
-    private ProgressDialog pDialog;
-    private SQLiteHandler db;
-    private static final String TAG = input_gizi.class.getSimpleName();
+public class InputNfcActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input_gizi);
+        setContentView(R.layout.activity_input_nfc);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         findViews();
+
     }
+
+    private TextView no_nfc;
+    private TextView nik;
+    private Button save;
+    private ProgressDialog pDialog;
+    private static final String TAG = InputNfcActivity.class.getSimpleName();
 
     private void findViews() {
-
-        nama_anak = (TextView) findViewById(R.id.namaAnak);
-        usia = (TextView) findViewById(R.id.umur);
-        gizi = (EditText) findViewById(R.id.namaGizi);
-        save = (Button) findViewById(R.id.save);
+        no_nfc = (TextView) findViewById( R.id.noNFC );
+        nik = (TextView)findViewById( R.id.nik );
+        save = (Button) findViewById( R.id.savenfc );
         pDialog = new ProgressDialog(this);
-        save.setOnClickListener(this);
-        nama_anak.setText(getIntent().getExtras().getString("nama_"));
-        db = new SQLiteHandler(getBaseContext());
+        save.setOnClickListener( this );
+        no_nfc.setText(getIntent().getExtras().getString("reversedhex"));
 
-        String dtStart = (getIntent().getExtras().getString("tl_"));
-        String[] sourceSplit= dtStart.split("-");
-
-        int year= Integer.parseInt(sourceSplit[0]);
-        int month= Integer.parseInt(sourceSplit[1]);
-        int day= Integer.parseInt(sourceSplit[2]);
-        usia.setText(getAge(year,month,day));
 
     }
-    private String getAge(int year, int month, int day){
-        Calendar dob = Calendar.getInstance();
-        Calendar today = Calendar.getInstance();
 
-        dob.set(year, month, day);
 
-        int ageyears = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-        int agemonth = today.get(Calendar.MONTH) - dob.get(Calendar.MONTH);
-        int agedays = today.get(Calendar.DAY_OF_MONTH) - dob.get(Calendar.DAY_OF_MONTH);
 
-        if (agemonth < 0) {
-            ageyears--;
-            agemonth = (12 + agemonth);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // todo: goto back activity from here
+                InputNfcActivity.this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        if (today.get(Calendar.DAY_OF_MONTH)< dob.get(Calendar.DAY_OF_MONTH)) {
-            agemonth--;
-            agedays = 30 + agedays;
-        }
-
-        String ageS = ageyears +" tahun "+ agemonth+" bulan "+ agedays+" hari";
-
-        return ageS;
     }
-
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            switch (item.getItemId()) {
-                case android.R.id.home:
-                    // todo: goto back activity from here
-                    input_gizi.this.finish();
-                    return true;
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
-        }
-
 
     private void sendData(){
 
-
-        final String _nama_anak = nama_anak.getText().toString().trim();
-        final String _usia = usia.getText().toString().trim();
-        final String _gizi = gizi.getText().toString().trim();
+        final String nomor_nfc = no_nfc.getText().toString().trim();
+        final String _nik = nik.getText().toString().trim();
 
 
-        String tag_string_req = "req_data_gizi";
+        String tag_string_req = "req_data_nfc";
 
         pDialog.setMessage("Mengirim Permintaan ...");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.REG_TAMBAH_GIZI , new Response.Listener<String>() {
+                AppConfig.REG_TAMBAH_NFC, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -155,10 +120,7 @@ public class input_gizi extends AppCompatActivity  implements View.OnClickListen
                         Toast.makeText(getApplicationContext(), "Data berhasil terkirim!", Toast.LENGTH_LONG).show();
 
                         // Launch login activity
-                        Intent intent = new Intent(getBaseContext(),
-                                data_anak.class);
-                        startActivity(intent);
-                        finish();
+
                     } else {
 
                         // Error occurred in registration. Get the error
@@ -196,11 +158,8 @@ public class input_gizi extends AppCompatActivity  implements View.OnClickListen
             protected Map<String, String> getParams() {
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("id_anak", getIntent().getExtras().getString("idanak"));
-                params.put("nama_anak", _nama_anak);
-                params.put("id_kader", db.getUserDetails().get("id_kader"));
-                params.put("umur", _usia);
-                params.put("gizi", _gizi);
+                params.put("no_nfc", nomor_nfc);
+                params.put("nik", _nik);
                 return params;
             }
 
@@ -216,18 +175,16 @@ public class input_gizi extends AppCompatActivity  implements View.OnClickListen
      * Auto-created on 2017-10-17 13:34:08 by Android Layout Finder
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
-    @Override
     public void onClick(View v) {
-        if ( v == save ) {
-            if (gizi.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Error,, harap isi semua data!", Toast.LENGTH_SHORT).show();
+
+            if (nik.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Error,, harap isi data nik!", Toast.LENGTH_SHORT).show();
             } else {
                 sendData();
             }
-        }
 
-        }
 
+    }
 
     private void showDialog() {
         if (!pDialog.isShowing())
@@ -241,3 +198,5 @@ public class input_gizi extends AppCompatActivity  implements View.OnClickListen
 
 
 }
+
+

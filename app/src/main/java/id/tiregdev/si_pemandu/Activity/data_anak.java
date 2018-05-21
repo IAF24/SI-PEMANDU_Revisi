@@ -29,6 +29,7 @@ import java.util.Map;
 import id.tiregdev.si_pemandu.R;
 import id.tiregdev.si_pemandu.utils.AppConfig;
 import id.tiregdev.si_pemandu.utils.AppControl;
+import id.tiregdev.si_pemandu.utils.SQLiteHandler;
 
 public class data_anak extends AppCompatActivity  {
 
@@ -36,11 +37,17 @@ public class data_anak extends AppCompatActivity  {
     private TextView nik;
     private TextView nama_ibu;
     private TextView nama_ayah;
-    private TextView alamat;
+    private TextView kelurahan;
+    private TextView rw;
+    private TextView rt;
     private TextView nama_anak;
+    private TextView jenis_kelamin;
     private TextView no_nfc;
+    private ProgressDialog pDialog;
     private Button ok;
+    private SQLiteHandler db;
     String ids;
+    String ttl;
     private static final String TAG = data_anak.class.getSimpleName();
 
     @Override
@@ -72,6 +79,9 @@ public class data_anak extends AppCompatActivity  {
             public void onClick(View view) {
                 Intent i = new Intent(data_anak.this, modul.class);
                 i.putExtra("idanak",ids);
+                i.putExtra("tgla",ttl);
+                i.putExtra("na",nama_anak.getText().toString());
+                sendData();
                 startActivity(i);
             }});
     }
@@ -95,17 +105,23 @@ public class data_anak extends AppCompatActivity  {
 //                    if (!error) {
 
                     ids = jObj.getString("id_anak");
+                    ttl = jObj.getString("ttl");
                     String niks = jObj.getString("nik");
                     String nama_ibus = jObj.getString("nama_ibu");
                     String nama_ayahs = jObj.getString("nama_ayah");
-                    String alamats = jObj.getString("alamat");
+                    String kelurahans = jObj.getString("kelurahan");
+                    String rws = jObj.getString("rw");
+                    String rts = jObj.getString("rt");
                     String nama_anaks  = jObj.getString("nama_anak");
+                    String jenis_kelamins  = jObj.getString("jenis_kelamin");
                     nik.setText(niks);
                     nama_ibu.setText(nama_ibus);
                     nama_ayah.setText(nama_ayahs);
-                    alamat.setText(alamats);
+                    kelurahan.setText(kelurahans);
+                    rw.setText(rws);
+                    rt.setText(rts);
                     nama_anak.setText(nama_anaks);
-
+                    jenis_kelamin.setText(jenis_kelamins);
 
 
 //                    } else {
@@ -171,16 +187,23 @@ public class data_anak extends AppCompatActivity  {
 //                    if (!error) {
 
                     ids = jObj.getString("id_anak");
+                    ttl = jObj.getString("ttl");
                     String niks = jObj.getString("nik");
                     String nama_ibus = jObj.getString("nama_ibu");
                     String nama_ayahs = jObj.getString("nama_ayah");
-                    String alamats = jObj.getString("alamat");
+                    String kelurahans = jObj.getString("kelurahan");
+                    String rws = jObj.getString("rw");
+                    String rts = jObj.getString("rt");
                     String nama_anaks  = jObj.getString("nama_anak");
+                    String jenis_kelamins  = jObj.getString("jenis_kelamin");
                     nik.setText(niks);
                     nama_ibu.setText(nama_ibus);
                     nama_ayah.setText(nama_ayahs);
-                    alamat.setText(alamats);
+                    kelurahan.setText(kelurahans);
+                    rw.setText(rws);
+                    rt.setText(rts);
                     nama_anak.setText(nama_anaks);
+                    jenis_kelamin.setText(jenis_kelamins);
 
 
 
@@ -233,9 +256,14 @@ public class data_anak extends AppCompatActivity  {
         nik = (TextView)findViewById( R.id.nik );
         nama_ibu = (TextView)findViewById( R.id.ibu );
         nama_ayah = (TextView)findViewById( R.id.ayah );
-        alamat = (TextView)findViewById( R.id.alamat );
+        kelurahan = (TextView)findViewById( R.id.kelurahan );
+        rw = (TextView)findViewById( R.id.rw );
+        rt = (TextView)findViewById( R.id.rt );
         ok = (Button) findViewById( R.id.oke );
         nama_anak = (TextView)findViewById( R.id.namaAnak );
+        jenis_kelamin = (TextView)findViewById( R.id.jk );
+        db = new SQLiteHandler(getBaseContext());
+        pDialog = new ProgressDialog(this);
 
 //        nik.setText(getIntent().getExtras().getString("nik"));
 //        nama_ibu.setText(getIntent().getExtras().getString("nama_ibu"));
@@ -243,6 +271,94 @@ public class data_anak extends AppCompatActivity  {
 //        alamat.setText(getIntent().getExtras().getString("alamat"));
 
     }
+    private void sendData(){
+
+        final String jenis_kelamins  = jenis_kelamin.getText().toString().trim();
+        String tag_string_req = "req_data_pendaftar";
+
+        pDialog.setMessage("Mengirim Permintaan ...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.REG_DATA_ANAK , new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Register Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+                    if (!error) {
+
+                        Toast.makeText(getApplicationContext(), "Data berhasil terkirim!", Toast.LENGTH_LONG).show();
+
+                        // Launch login activity
+                        Intent intent = new Intent(getBaseContext(),
+                                data_anak.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+
+                        // Error occurred in registration. Get the error
+                        // message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Failed with error msg:\t" + error.getMessage());
+                Log.d(TAG, "Error StackTrace: \t" + error.getStackTrace());
+                // edited here
+                try {
+                    byte[] htmlBodyBytes = error.networkResponse.data;
+                    Log.e(TAG, new String(htmlBodyBytes), error);
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("id_anak",ids);
+                params.put("jenis_kelamin", jenis_kelamins);
+                params.put("id_kader", db.getUserDetails().get("id_kader"));
+                return params;
+            }
+
+        };
+
+// Adding request to request queue
+        AppControl.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

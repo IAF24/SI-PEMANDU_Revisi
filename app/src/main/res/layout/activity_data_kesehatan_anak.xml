@@ -40,7 +40,6 @@
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11:17:57"
                 android:textSize="12sp" />
 
             <View
@@ -61,7 +60,7 @@
                 android:id="@+id/namaAnak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fajri" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,7 +74,7 @@
                 android:id="@+id/usia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="24 bulan" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,7 +88,7 @@
                 android:id="@+id/penyakit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Malaria" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +102,7 @@
                 android:id="@+id/tindakan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rujuk ke RSUD Depok" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,7 +116,7 @@
                 android:id="@+id/ket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Diagnosa Bidan" />
+                />
 
             <Button
                 android:id="@+id/update"

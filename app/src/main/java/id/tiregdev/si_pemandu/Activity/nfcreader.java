@@ -94,6 +94,16 @@ public class nfcreader extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Button tmbhNFc = findViewById(R.id.TambahNoNFC);
+        tmbhNFc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(nfcreader.this, InputNfcActivity.class);
+                i.putExtra("reversedhex",reversed.getText().toString());
+                startActivity(i);
+            }
+        });
     }
 
     private TextView tanggal;
@@ -120,7 +130,7 @@ public class nfcreader extends AppCompatActivity {
         reversedDec = (TextView)findViewById( R.id.reversedDec );
         teknologi = (TextView)findViewById( R.id.teknologi );
 
-        DateFormat df = new SimpleDateFormat("HH:mm"); //format time
+        DateFormat df = new SimpleDateFormat("HH:mm:ss"); //format time
         String timeNow = df.format(Calendar.getInstance().getTime());
 
         DateFormat df1=new SimpleDateFormat("dd/MM/yyyy");//foramt date

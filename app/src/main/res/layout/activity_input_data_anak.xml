@@ -49,6 +49,14 @@
                 android:padding="10dp" />
 
             <EditText
+                android:id="@+id/nokk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_editext"
+                android:hint="No KK"
+                android:padding="10dp" />
+            <EditText
                 android:id="@+id/namaAnak"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,14 +133,31 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/alamat"
+                android:id="@+id/kelurahan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_editext"
-                android:hint="Alamat"
+                android:hint="Kelurahan"
                 android:padding="10dp" />
 
+            <EditText
+                android:id="@+id/rw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_editext"
+                android:hint="RW"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/rt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_editext"
+                android:hint="RT"
+                android:padding="10dp" />
             <EditText
                 android:id="@+id/noHp"
                 android:layout_width="match_parent"

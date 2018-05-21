@@ -50,6 +50,8 @@ public class gizi_history extends AppCompatActivity {
 
                 Intent i = new Intent(gizi_history.this, input_gizi.class);
                 i.putExtra("idanak", getIntent().getExtras().getString("idank"));
+                i.putExtra("nama_", getIntent().getExtras().getString("namagi"));
+                i.putExtra("tl_", getIntent().getExtras().getString("tlg"));
                 startActivity(i);
             }
         });

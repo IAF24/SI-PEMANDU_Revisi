@@ -27,19 +27,14 @@
             android:padding="15dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Tanggal "
-                android:textColor="@color/ijo"
-                android:textStyle="bold"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/tgl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
+                android:layout_marginTop="20dp"
+                android:text="03/07/18"
+                android:textColor="@color/ijo"
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -87,14 +82,14 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/update"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/ijo"
-                android:text="update"
-                android:textColor="@color/putih"/>
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/ijo"
+            android:text="update"
+            android:textColor="@color/putih"/>
 
         </LinearLayout>
 

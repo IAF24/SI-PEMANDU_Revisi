@@ -51,8 +51,11 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
     private TextView nama_ayah;
     private TextView anak_ke;
     private TextView jml_saudara;
-    private TextView alamat;
+    private TextView kelurahan;
     private TextView no_hp;
+    private TextView rt;
+    private TextView rw;
+    private TextView no_kk;
     private Button save;
     private ProgressDialog pDialog;
     private static final String TAG = input_data_anak.class.getSimpleName();
@@ -102,13 +105,16 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
         nama_ayah = (TextView)findViewById( R.id.namaAyah );
         anak_ke = (TextView)findViewById( R.id.anakKe );
         jml_saudara = (TextView)findViewById( R.id.jumlahSaudara );
-        alamat = (TextView)findViewById( R.id.alamat );
+        kelurahan = (TextView)findViewById( R.id.kelurahan );
         no_hp = (TextView)findViewById( R.id.noHp );
+        no_kk = (TextView)findViewById( R.id.nokk );
+        rw = (TextView)findViewById( R.id.rw );
+        rt = (TextView)findViewById( R.id.rt );
         save = (Button) findViewById( R.id.save );
         pDialog = new ProgressDialog(this);
         save.setOnClickListener( this );
         no_nfc.setText(getIntent().getExtras().getString("reversedhex"));
-        sdf = new SimpleDateFormat("dd-MM-yyyy");
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     }
 
@@ -133,15 +139,17 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
         final String nomor_nfc = no_nfc.getText().toString().trim();
         final String _nik = nik.getText().toString().trim();
         final String _nama_anak = nama_anak.getText().toString().trim();
-        final String _jenis_kelamain = ((RadioButton)findViewById(jenis_kelamin.getCheckedRadioButtonId())).getText().toString();
+        final String _jenis_kelamin = ((RadioButton)findViewById(jenis_kelamin.getCheckedRadioButtonId())).getText().toString();
         final String _ttl = ttl.getText().toString().trim();
         final String _nama_ibu = nama_ibu.getText().toString().trim();
         final String _nama_ayah = nama_ayah.getText().toString().trim();
         final String _anak_ke = anak_ke.getText().toString().trim();
         final String _jml_saudara = nama_ibu.getText().toString().trim();
-        final String _alamat = alamat.getText().toString().trim();
+        final String _kelurahan = kelurahan.getText().toString().trim();
         final String _no_hp  = no_hp.getText().toString().trim();
-
+        final String _no_kk  = no_kk.getText().toString().trim();
+        final String _rt  = rt.getText().toString().trim();
+        final String _rw  = rw.getText().toString().trim();
         String tag_string_req = "req_data_anak";
 
         pDialog.setMessage("Mengirim Permintaan ...");
@@ -177,11 +185,6 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
 
                         Toast.makeText(getApplicationContext(), "Data berhasil terkirim!", Toast.LENGTH_LONG).show();
 
-                        // Launch login activity
-                        Intent intent = new Intent(getBaseContext(),
-                                data_anak.class);
-                        startActivity(intent);
-                        finish();
                     } else {
 
                         // Error occurred in registration. Get the error
@@ -201,7 +204,7 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
             public void onErrorResponse(VolleyError error) {
 
                 Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
+                        "Data gagal terkirim ", Toast.LENGTH_LONG).show();
                 Log.d(TAG, "Failed with error msg:\t" + error.getMessage());
                 Log.d(TAG, "Error StackTrace: \t" + error.getStackTrace());
                 // edited here
@@ -221,14 +224,17 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("no_nfc", nomor_nfc);
                 params.put("nik", _nik);
+                params.put("no_kk", _no_kk);
                 params.put("nama_anak", _nama_anak);
-                params.put("jenis_kelamin", _jenis_kelamain);
+                params.put("jenis_kelamin", _jenis_kelamin);
                 params.put("ttl", _ttl);
                 params.put("nama_ibu", _nama_ibu);
                 params.put("nama_ayah", _nama_ayah);
                 params.put("anak_ke", _anak_ke);
                 params.put("jml_saudara", _jml_saudara);
-                params.put("alamat", _alamat);
+                params.put("kelurahan", _kelurahan);
+                params.put("rw", _rw);
+                params.put("rt", _rt);
                 params.put("no_hp", _no_hp);
                 return params;
             }
@@ -250,10 +256,11 @@ public class input_data_anak extends AppCompatActivity implements View.OnClickLi
         if (v == ttl) {
             settingTanggal();
         } else if (v == save) {
-            if (nik.getText().toString().isEmpty() || nama_anak.getText().toString().isEmpty() ||
+            if (nik.getText().toString().isEmpty() || no_kk.getText().toString().isEmpty() || nama_anak.getText().toString().isEmpty() ||
                     ttl.getText().toString().isEmpty() || nama_ibu.getText().toString().isEmpty() ||
                     nama_ayah.getText().toString().isEmpty() || anak_ke.getText().toString().isEmpty() ||
-                    jml_saudara.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() ||
+                    jml_saudara.getText().toString().isEmpty() || kelurahan.getText().toString().isEmpty() ||
+                    rw.getText().toString().isEmpty() || rt.getText().toString().isEmpty() ||
                     no_hp.getText().toString().isEmpty() || jenis_kelamin.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "Error,, harap isi semua data!", Toast.LENGTH_SHORT).show();
             } else {

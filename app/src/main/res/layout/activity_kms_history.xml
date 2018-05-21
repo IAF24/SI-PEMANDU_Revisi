@@ -40,7 +40,6 @@
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11:17:57"
                 android:textSize="12sp" />
 
             <View
@@ -61,7 +60,7 @@
                 android:id="@+id/namaAnak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fajri" />
+            />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,21 +74,8 @@
                 android:id="@+id/usia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="24 bulan" />
+                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Jenis Kelamin"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/jk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Laki-laki" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +89,7 @@
                 android:id="@+id/blnPenimbang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Maret" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,7 +103,7 @@
                 android:id="@+id/tinggi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="50 cm" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -131,7 +117,9 @@
                 android:id="@+id/berat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 kg" />
+                android:text="0"
+
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +133,7 @@
                 android:id="@+id/statusBB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Naik" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,7 +147,7 @@
                 android:id="@+id/statusASI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="YA" />
+                 />
 
             <Button
                 android:id="@+id/update"

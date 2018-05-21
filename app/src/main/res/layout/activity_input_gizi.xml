@@ -25,33 +25,33 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <EditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Nama Anak"
+                android:textColor="@color/ijo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/namaAnak"
-                android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Nama Anak"
-                android:padding="10dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Umur Anak"
+                android:textColor="@color/ijo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/umur"
-                android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Umur"
-                android:padding="10dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tglInput"
-                android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Tanggal Input Data"
-                android:padding="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"

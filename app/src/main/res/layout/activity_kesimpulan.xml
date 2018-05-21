@@ -38,7 +38,7 @@
                 android:id="@+id/kms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/des" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,49 +52,7 @@
                 android:id="@+id/imunisasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/des"  />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Gizi"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/gizi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/des"  />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="SDIDTK"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sdidtk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/des"  />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Kesehatan Anak"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/kesAnak"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/des" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,7 +66,7 @@
                 android:id="@+id/vita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/des" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,7 +80,7 @@
                 android:id="@+id/kbbl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/des" />
+             />
 
         </LinearLayout>
 

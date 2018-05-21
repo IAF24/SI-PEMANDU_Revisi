@@ -127,7 +127,7 @@
                     android:layout_height="16dp"
                     android:layout_marginTop="3dp"
                     android:contentDescription="@string/ImgDesc"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                    android:src="@drawable/mail" />
 
                 <TextView
                     android:id="@+id/email"
@@ -144,7 +144,7 @@
                     android:layout_below="@id/mail"
                     android:layout_marginTop="8dp"
                     android:contentDescription="@string/ImgDesc"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                    android:src="@drawable/world" />
 
                 <TextView
                     android:id="@+id/alamat"
@@ -163,7 +163,7 @@
                     android:layout_below="@id/alamat"
                     android:layout_marginTop="8dp"
                     android:contentDescription="@string/ImgDesc"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                    android:src="@drawable/phone" />
 
                 <TextView
                     android:id="@+id/tlp"
@@ -182,7 +182,7 @@
                     android:layout_below="@id/phone"
                     android:layout_marginTop="8dp"
                     android:contentDescription="@string/ImgDesc"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                    android:src="@drawable/calender" />
 
                 <TextView
                     android:id="@+id/ttl"

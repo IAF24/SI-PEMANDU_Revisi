@@ -129,6 +129,16 @@
                 android:textColor="@color/putih" />
 
             <Button
+                android:id="@+id/TambahNoNFC"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:background="@color/ijo"
+                android:text="Tambah NFC"
+                android:textColor="@color/putih" />
+
+            <Button
                 android:id="@+id/tambahData"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"

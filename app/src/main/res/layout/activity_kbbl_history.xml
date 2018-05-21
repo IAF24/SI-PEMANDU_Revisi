@@ -40,7 +40,6 @@
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11:17:57"
                 android:textSize="12sp" />
 
             <View
@@ -60,8 +59,7 @@
             <TextView
                 android:id="@+id/namaAnak"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fajri" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -74,8 +72,7 @@
             <TextView
                 android:id="@+id/usia"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="24 bulan" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,8 +85,7 @@
             <TextView
                 android:id="@+id/bb"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2 kg" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -102,205 +98,33 @@
             <TextView
                 android:id="@+id/panjangBadan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="40 cm" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Suhu"
+                android:text="Tempat Lahir"
                 android:textColor="@color/ijo"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/suhu"
+                android:id="@+id/tempatlahir"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="27 Derajat Celcius" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Frekuensi Nafas"
+                android:text="Cara Persalinan"
                 android:textColor="@color/ijo"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/frekuensiNafas"
+                android:id="@+id/cara"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="140/menit" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Frekuensi Denyut Jantung"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/FrekuensiDenyutJantung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="80/menit" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Penyakit Berat"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/penyakitBerat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tidak" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Ikterus"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/ikterus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Normal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Diare"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/diare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tidak" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="ASI"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/asi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Baik" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Status Vit. K"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/statusVitK"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lengkap" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Status Imuniasi"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/statusImuniasai"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lengkap" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="SHK"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/shk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tidak" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Hasil Tes SHK"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/hasilSHK"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="(-) Min" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Konfirmasi Hasil SHK"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/konfirmSHK"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Valid" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Tindakan"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tindakan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tidak" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Nama Pemeriksa"
-                android:textColor="@color/ijo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/namaPemeriksa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dr. Annisa" />
-
+                android:layout_height="wrap_content" />
             <Button
                 android:id="@+id/update"
                 android:layout_width="match_parent"
@@ -310,7 +134,6 @@
                 android:background="@color/ijo"
                 android:text="update"
                 android:textColor="@color/putih"/>
-
         </LinearLayout>
 
     </LinearLayout>
