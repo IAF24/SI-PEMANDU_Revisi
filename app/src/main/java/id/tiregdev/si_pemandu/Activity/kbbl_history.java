@@ -55,6 +55,9 @@ public class kbbl_history extends AppCompatActivity {
                 i.putExtra("idanak", getIntent().getExtras().getString("idankbl"));
                 i.putExtra("nama_", getIntent().getExtras().getString("namabl"));
                 i.putExtra("tl_", getIntent().getExtras().getString("tlk"));
+                i.putExtra("jkl", getIntent().getExtras().getString("jklmk"));
+                i.putExtra("namaayah", getIntent().getExtras().getString("ayhk"));
+                i.putExtra("namaibu", getIntent().getExtras().getString("ibuk"));
                 startActivity(i);
             }
         });

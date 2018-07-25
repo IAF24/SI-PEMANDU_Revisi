@@ -58,10 +58,11 @@ public class data_anak extends AppCompatActivity  {
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         findViews();
-        if (getIntent().getExtras().containsKey("_niks")){
+        final String A = (getIntent().getExtras().getString("_niks"));
+       // final String B = (getIntent().getExtras().getString("id_anak"));
+        if (A != null ){
            displayDataNik();
-         }
-        else if(getIntent().getExtras().containsKey("id_anak")) {
+         } else if (A == null ){
            displayData();
          }
 
@@ -81,6 +82,9 @@ public class data_anak extends AppCompatActivity  {
                 i.putExtra("idanak",ids);
                 i.putExtra("tgla",ttl);
                 i.putExtra("na",nama_anak.getText().toString());
+                i.putExtra("nayh",nama_ayah.getText().toString());
+                i.putExtra("nibu",nama_ibu.getText().toString());
+                i.putExtra("jk",jenis_kelamin.getText().toString());
                 sendData();
                 startActivity(i);
             }});
@@ -276,8 +280,8 @@ public class data_anak extends AppCompatActivity  {
         final String jenis_kelamins  = jenis_kelamin.getText().toString().trim();
         String tag_string_req = "req_data_pendaftar";
 
-        pDialog.setMessage("Mengirim Permintaan ...");
-        showDialog();
+      //  pDialog.setMessage("Mengirim Permintaan ...");
+       // showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 AppConfig.REG_DATA_ANAK , new Response.Listener<String>() {
@@ -285,7 +289,7 @@ public class data_anak extends AppCompatActivity  {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
-                hideDialog();
+              //  hideDialog();
 
                 try {
                     JSONObject jObj = new JSONObject(response);
@@ -328,7 +332,7 @@ public class data_anak extends AppCompatActivity  {
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
-                hideDialog();
+                //hideDialog();
             }
         }) {
 
@@ -349,15 +353,15 @@ public class data_anak extends AppCompatActivity  {
     }
 
 
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
+    //private void showDialog() {
+       // if (!pDialog.isShowing())
+  //          pDialog.show();
+   // }
 
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
-    }
+   // private void hideDialog() {
+     //   if (pDialog.isShowing())
+     //       pDialog.dismiss();
+  //  }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

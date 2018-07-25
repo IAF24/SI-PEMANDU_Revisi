@@ -53,6 +53,9 @@ public class data_kesehatan_anak extends AppCompatActivity {
                 i.putExtra("idanak", getIntent().getExtras().getString("idanka"));
                 i.putExtra("nama_", getIntent().getExtras().getString("namaka"));
                 i.putExtra("tl_", getIntent().getExtras().getString("tla"));
+                i.putExtra("jkl", getIntent().getExtras().getString("jklmka"));
+                i.putExtra("namaayah", getIntent().getExtras().getString("ayhka"));
+                i.putExtra("namaibu", getIntent().getExtras().getString("ibuka"));
                 startActivity(i);
             }
         });

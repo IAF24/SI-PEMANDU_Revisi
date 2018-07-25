@@ -101,21 +101,6 @@ public class InputNfcActivity extends AppCompatActivity implements View.OnClickL
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
-                        // User successfully stored in MySQL
-                        // Now store the user in sqlite
-//                        String uid = jObj.getString("uid");
-//
-//                        JSONObject user = jObj.getJSONObject("user");
-//                        String name = user.getString("name");
-//                        String email = user.getString("email");
-//                        String alamat = user.getString("alamat");
-//                        String no_telp = user.getString("no_telp");
-//                        String tanggal_lahir = user.getString("tanggal_lahir");
-//                        String bio = user.getString("bio");
-//                        String foto_user = user.getString("foto");
-//
-//                        // Inserting row in users table
-//                        db.updateUser(name, email, uid, alamat, no_telp, tanggal_lahir, bio, foto_user);
 
                         Toast.makeText(getApplicationContext(), "Data berhasil terkirim!", Toast.LENGTH_LONG).show();
 

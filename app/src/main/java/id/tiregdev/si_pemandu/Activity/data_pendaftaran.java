@@ -36,7 +36,6 @@ public class data_pendaftaran extends AppCompatActivity {
     private TextView  tudb;
     private TextView  tudv;
     private TextView  tudi;
-    private TextView  tudg;
     private TextView  tudka;
     private static final String TAG = data_pendaftaran.class.getSimpleName();
 
@@ -74,8 +73,7 @@ public class data_pendaftaran extends AppCompatActivity {
                         String tudks = jsonobject.getString("total_update_kms");
                         String tudbs = jsonobject.getString("total_update_kbbl");
                         String tudvs = jsonobject.getString("total_update_vita");
-                        String tudis = jsonobject.getString("total_update_munisasi");
-                        String tudgs = jsonobject.getString("total_update_gizi");
+                        String tudis = jsonobject.getString("total_update_imunisasi");
                         String tudkas = jsonobject.getString("total_kesehatan_anak");
                         tpa.setText(tpas);
                         tl.setText(tls);
@@ -84,7 +82,6 @@ public class data_pendaftaran extends AppCompatActivity {
                         tudb.setText(tudbs);
                         tudv.setText(tudvs);
                         tudi.setText(tudis);
-                        tudg.setText(tudgs);
                         tudka.setText(tudkas);
 
 
@@ -142,7 +139,6 @@ public class data_pendaftaran extends AppCompatActivity {
         tudb = (TextView)findViewById( R.id.dataKBBL );
         tudv = (TextView)findViewById( R.id.dataVitA );
         tudi = (TextView)findViewById( R.id.dataImunisasi );
-        tudg = (TextView)findViewById( R.id.dataGizi );
         tudka = (TextView)findViewById( R.id.dataKesAnak );
         tgl.setText(getIntent().getExtras().getString("tgls"));
     }

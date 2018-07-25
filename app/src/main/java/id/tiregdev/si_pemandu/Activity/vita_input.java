@@ -115,21 +115,25 @@ public class vita_input extends AppCompatActivity implements View.OnClickListene
     }
 
 
-    private void sendData(){
+    private void sendData() {
 
 
         final String _nama_anak = nama_anak.getText().toString().trim();
         final String _umur = umur.getText().toString().trim();
-        final String _nama_kapsul = nama_kapsul.getText().toString().trim();
+        final String _nama_kapsul = nama_kapsul.getText().toString().trim().toLowerCase();
+        ;
 
-        if(tahun <= 0 && bulan >= 6){
-            kesimpulan = "Jangan lupa untuk memberikan 1 kapsul biru Vit A setiap bulan Februari dan Agustus ";
+        if (tahun <= 0 && bulan >= 6 && _nama_kapsul.equals("kapsul biru")) {
+            kesimpulan = "Vitamin A Lengkap";
+        } else if (tahun <= 0 && bulan >= 6){
+            kesimpulan = "Pemberian Vitamin A Tidak Sesuai";
         } else if (tahun <= 0 && bulan < 6){
-            kesimpulan = "Jangan lupa untuk memberikan 1 kapsul biru Vit A setiap bulan Februari dan Agustus ketika anak sudah berusia diatas 6 bulan";
-        } else if (tahun >= 1){
-            kesimpulan = "Jangan lupa untuk memberikan 1 kapsul merah Vit A setiap bulan Februari dan Agustus";
+            kesimpulan = "Pemberian Vitamin A Ketika Anak berusia diatas 6 Bulan";
+        } else if (tahun >= 1 && _nama_kapsul.equals(" kapsul merah")){
+            kesimpulan = "Vitamin A Lengkap";
+        } else if (tahun >= 1) {
+            kesimpulan = "Pemberian Vitamin A Tidak Sesuai";
         }
-
         String tag_string_req = "req_data_vita";
 
         pDialog.setMessage("Mengirim Permintaan ...");
@@ -193,6 +197,10 @@ public class vita_input extends AppCompatActivity implements View.OnClickListene
                 params.put("umur", _umur);
                 params.put("nama_kapsul", _nama_kapsul);
                 params.put("kesimpulan_vita", kesimpulan);
+                params.put("nama_ayah", getIntent().getExtras().getString("namaayah"));
+                params.put("nama_ibu", getIntent().getExtras().getString("namaibu"));
+                params.put("jenis_kelamin", getIntent().getExtras().getString("jkl"));
+                params.put("ttl", getIntent().getExtras().getString("tl_"));
                 return params;
             }
 

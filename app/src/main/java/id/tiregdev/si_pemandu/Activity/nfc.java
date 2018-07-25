@@ -158,17 +158,6 @@ public class nfc extends AppCompatActivity {
         startActivity(intent);
     }
 
-   /* public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // todo: goto back activity from here
-                nfc.this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
-
     private String dumpTagData(Tag tag) {
         StringBuilder sb = new StringBuilder();
         id = tag.getId();

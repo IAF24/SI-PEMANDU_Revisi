@@ -77,19 +77,15 @@ public class    login extends AppCompatActivity  {
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
                 hideDialog();
-
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
-
                     // Check for error node in json
                     if (!error) {
                         // user successfully logged in
                         // Create login session
                         session.setLogin(true);
-
                         // Now store the user in SQLite
-
                         JSONObject user = jObj.getJSONObject("kaders");
                         String id_kader = user.getString("id_kader");
                         String nama_admin = user.getString("nama_admin");

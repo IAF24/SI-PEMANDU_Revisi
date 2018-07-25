@@ -53,6 +53,9 @@ public class vita_history extends AppCompatActivity {
                 i.putExtra("idanak", getIntent().getExtras().getString("idankvita"));
                 i.putExtra("nama_", getIntent().getExtras().getString("namavita"));
                 i.putExtra("tl_", getIntent().getExtras().getString("tlv"));
+                i.putExtra("jkl", getIntent().getExtras().getString("jklmv"));
+                i.putExtra("namaayah", getIntent().getExtras().getString("ayhv"));
+                i.putExtra("namaibu", getIntent().getExtras().getString("ibuv"));
                 startActivity(i);
             }
         });

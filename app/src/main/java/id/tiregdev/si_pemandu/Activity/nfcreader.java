@@ -145,8 +145,6 @@ public class nfcreader extends AppCompatActivity {
     }
 
     private void displayData(){
-
-
         final String no_nfcs = getIntent().getExtras().getString("IDReversedHex");
         String tag_string_req = "show_nama_anak";
 //        Toast.makeText(this, no_nfcs, Toast.LENGTH_SHORT).show();

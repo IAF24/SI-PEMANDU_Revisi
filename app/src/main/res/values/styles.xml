@@ -8,9 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="SetToolbar" parent="AppTheme" >
+    <style name="SetToolbar" parent="AppTheme">
         <item name="android:textColorPrimary">@color/putih</item>
         <item name="colorControlNormal">@color/putih</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

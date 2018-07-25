@@ -52,14 +52,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/blnPenimbang"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_editext"
-                android:hint="Bulan Penimbang"
-                android:padding="10dp" />
+                android:text="Bulan Penimbang"
+                android:textColor="@color/ijo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/blnPenimbang"
+                android:popupBackground="#FFFF"
+                />
 
             <EditText
                 android:id="@+id/bb"
@@ -76,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_editext"
-                android:hint="Tinggi"
+                android:hint="Tinggi (cm)"
                 android:padding="10dp" />
 
 

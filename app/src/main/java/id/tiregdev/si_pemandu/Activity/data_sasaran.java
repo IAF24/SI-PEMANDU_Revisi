@@ -64,7 +64,7 @@ public class data_sasaran extends AppCompatActivity {
                     String namas = jObj.getString("nama_posyandu");
                     String tsa_ = jObj.getString("total_sasaran_anak");
                     String tsab_ = jObj.getString("total_sasaran_anak_baru");
-                    String tl_ = jObj.getString("total_laki-laki");
+                    String tl_ = jObj.getString("total_laki_laki");
                     String tp_ = jObj.getString("total_perempuan");
                     namaP.setText(namas);
                     tsa.setText(tsa_);

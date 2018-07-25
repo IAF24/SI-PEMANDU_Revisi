@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import id.tiregdev.si_pemandu.Activity.cari_data_pendaftaran;
 import id.tiregdev.si_pemandu.Activity.data_sasaran;
+import id.tiregdev.si_pemandu.notifikasi;
 import id.tiregdev.si_pemandu.R;
 
 /**
@@ -20,7 +21,7 @@ import id.tiregdev.si_pemandu.R;
 public class laporan extends Fragment {
 
     View v;
-    Button sasaran, pendaftaran;
+    Button sasaran, pendaftaran, notifikasi;
 
     public static laporan newInstance(){
         laporan fragment = new laporan();
@@ -38,6 +39,7 @@ public class laporan extends Fragment {
     public void findID(){
         sasaran = v.findViewById(R.id.sasaran);
         pendaftaran = v.findViewById(R.id.pendaftaran);
+        notifikasi = v.findViewById(R.id.notifikasi);
 
         sasaran.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,13 @@ public class laporan extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), cari_data_pendaftaran.class);
+                startActivity(i);
+            }
+        });
+        notifikasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), notifikasi.class);
                 startActivity(i);
             }
         });

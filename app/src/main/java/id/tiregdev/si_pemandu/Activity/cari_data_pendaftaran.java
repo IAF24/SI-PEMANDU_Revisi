@@ -45,7 +45,11 @@ public class cari_data_pendaftaran extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(cari_data_pendaftaran.this, data_pendaftaran.class);
                 i.putExtra("tgls",tgl.getText().toString().trim());
+                if (tgl.getText().toString().isEmpty()) {
+                    Toast.makeText(cari_data_pendaftaran.this, "Error,, harap isi semua data!", Toast.LENGTH_SHORT).show();
+                } else {
                 startActivity(i);
+            }
             }
         });
     }

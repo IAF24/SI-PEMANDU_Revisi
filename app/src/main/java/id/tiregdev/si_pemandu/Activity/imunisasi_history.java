@@ -53,6 +53,9 @@ public class imunisasi_history extends AppCompatActivity {
                 i.putExtra("idanak", getIntent().getExtras().getString("idankimun"));
                 i.putExtra("nama_", getIntent().getExtras().getString("namaimun"));
                 i.putExtra("tl_", getIntent().getExtras().getString("tlm"));
+                i.putExtra("jkl", getIntent().getExtras().getString("jklmi"));
+                i.putExtra("namaayah", getIntent().getExtras().getString("ayhi"));
+                i.putExtra("namaibu", getIntent().getExtras().getString("ibui"));
                 startActivity(i);
             }
         });

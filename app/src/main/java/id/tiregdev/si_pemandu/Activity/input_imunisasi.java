@@ -11,9 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -37,7 +40,7 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
     private Button save;
     private TextView nama_anak;
     private TextView umur;
-    private EditText vaksin;
+    String imun;
     private SQLiteHandler db;
     private static final String TAG = input_imunisasi.class.getSimpleName();
     int tahun;
@@ -45,6 +48,21 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
     int hari;
     String kesimpulan;
 
+    Spinner vaksin;
+    String[] cities = {
+            "BCG",
+            "DPT I",
+            "DPT II",
+            "DPT III",
+            "Polio I",
+            "Polio II",
+            "Polio III",
+            "Polio IV",
+            "Campak",
+            "Hepatitis I",
+            "Hepatitis II",
+            "Hepatitis III"
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +71,33 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         findViews();
+        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.
+                R.layout.simple_spinner_dropdown_item ,cities);
+
+        vaksin.setAdapter(adapter);
+
+        vaksin.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // Get select item
+                int sid=vaksin.getSelectedItemPosition();
+                Toast.makeText(getBaseContext(), "Vaksin yang dipilih : " + cities[sid],
+                        Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
     }
 
     private void findViews() {
         nama_anak = (TextView) findViewById(R.id.namaAnak);
         umur = (TextView) findViewById(R.id.umur);
-        vaksin = (EditText) findViewById(R.id.vaksin);
+        vaksin = (Spinner) findViewById(R.id.vaksin);
         save = (Button) findViewById(R.id.save);
         pDialog = new ProgressDialog(this);
         save.setOnClickListener(this);
@@ -119,16 +158,16 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
 
         final String _nama_anak = nama_anak.getText().toString().trim();
         final String _umur = umur.getText().toString().trim();
-        final String _vaksin = vaksin.getText().toString().trim().toLowerCase();
+        final String imun = vaksin.getSelectedItem().toString();
 
-        if(tahun <= 0 && _vaksin.equals("campak")){
+        if(tahun <= 1 && imun.equals("Campak")){
             kesimpulan = "Imunisasi Dasar Lengkap";
-        } else if(tahun >= 1 && _vaksin.equals("campak")){
-            kesimpulan = "Tidak Imunisasi Dasar Lengkap";
+        } else if(tahun >= 1 && bulan >= 1 && imun.equals("Campak")){
+            kesimpulan = "Imunisasi Dasar Tidak Lengkap";
         } else if (tahun >= 1 ){
-            kesimpulan = "Tidak Imunisasi Dasar Lengkap";
+            kesimpulan = "Imunisasi Dasar Tidak Lengkap";
         }  else if (tahun <= 0 ){
-            kesimpulan = "Belum Imunisasi Dasar Lengkap";
+            kesimpulan = "Imunisasi Dasar Belum Lengkap";
         }
         String tag_string_req = "req_data_imunisasi";
 
@@ -147,21 +186,7 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
-                        // User successfully stored in MySQL
-                        // Now store the user in sqlite
-//                        String uid = jObj.getString("uid");
-//
-//                        JSONObject user = jObj.getJSONObject("user");
-//                        String name = user.getString("name");
-//                        String email = user.getString("email");
-//                        String alamat = user.getString("alamat");
-//                        String no_telp = user.getString("no_telp");
-//                        String tanggal_lahir = user.getString("tanggal_lahir");
-//                        String bio = user.getString("bio");
-//                        String foto_user = user.getString("foto");
-//
-//                        // Inserting row in users table
-//                        db.updateUser(name, email, uid, alamat, no_telp, tanggal_lahir, bio, foto_user);
+
 
                         Toast.makeText(getApplicationContext(), "Data berhasil terkirim!", Toast.LENGTH_LONG).show();
 
@@ -208,8 +233,12 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
                 params.put("nama_anak", _nama_anak);
                 params.put("id_kader", db.getUserDetails().get("id_kader"));
                 params.put("umur", _umur);
-                params.put("vaksin", _vaksin);
+                params.put("vaksin", imun);
                 params.put("kesimpulan_imunisasi", kesimpulan);
+                params.put("nama_ayah", getIntent().getExtras().getString("namaayah"));
+                params.put("nama_ibu", getIntent().getExtras().getString("namaibu"));
+                params.put("jenis_kelamin", getIntent().getExtras().getString("jkl"));
+                params.put("ttl", getIntent().getExtras().getString("tl_"));
                 return params;
             }
 
@@ -221,14 +250,14 @@ public class input_imunisasi extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if ( v == save ) {
-            if (vaksin.getText().toString().isEmpty()) {
+            if (vaksin.getContext().toString().isEmpty()) {
                 Toast.makeText(this, "Error,, harap isi semua data!", Toast.LENGTH_SHORT).show();
             } else {
                 sendData();
             }
         }
 
-        }
+    }
 
 
     private void showDialog() {

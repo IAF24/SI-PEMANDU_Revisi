@@ -81,12 +81,12 @@ public class user_profile extends AppCompatActivity implements View.OnClickListe
         }
     }*/
    private void findViews() {
-       user = (TextView) findViewById(R.id.namakader) ;
-       username = (TextView) findViewById(R.id.username);
+     //  user = (TextView) findViewById(R.id.namakader) ;
+     //  username = (TextView) findViewById(R.id.username);
        email = (TextView) findViewById(R.id.email);
        alamat = (TextView) findViewById(R.id.alamat);
-       no_hp = (TextView) findViewById(R.id.noHP);
-       tgl_lahir = (TextView) findViewById(R.id.tglLahir);
+       //no_hp = (TextView) findViewById(R.id.noHP);
+      // tgl_lahir = (TextView) findViewById(R.id.tglLahir);
        bio = (TextView) findViewById(R.id.bio);
        save = (Button) findViewById(R.id.saveChanges);
        pDialog = new ProgressDialog(this);
@@ -108,7 +108,7 @@ public class user_profile extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setInit(){
-        ttl = (EditText)findViewById(R.id.tglLahir);
+        //ttl = (EditText)findViewById(R.id.tglLahir);
         sdf = new SimpleDateFormat("dd-MM-yyyy");
         dateAndTime = Calendar.getInstance();
         ttl.setOnClickListener(new View.OnClickListener() {

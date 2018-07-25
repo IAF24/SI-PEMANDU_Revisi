@@ -28,4 +28,5 @@ public class AppConfig {
     public static String DATA_PENDAFTARAN = "http://si-pemandu.com/android_api/DataPendaftaran/Daftar_anak.php";
     public static String LIST_DATA = "http://puskesmaslimo.com/android_api/list_data.php";
     public static String KESIMPULAN = "http://si-pemandu.com/android_api/Kesimpulan/kesimpulan_anak.php";
+    public static String REG_NOTIFIKASI = "http://si-pemandu.com/android_api/Notifikasi/reg_notifikasi.php";
 }

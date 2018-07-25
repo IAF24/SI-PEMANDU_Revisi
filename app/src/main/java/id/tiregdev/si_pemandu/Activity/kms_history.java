@@ -57,6 +57,9 @@ public class kms_history extends AppCompatActivity {
                 i.putExtra("idanak", getIntent().getExtras().getString("idankms"));
                 i.putExtra("nama_", getIntent().getExtras().getString("nama"));
                 i.putExtra("tl_", getIntent().getExtras().getString("tll"));
+                i.putExtra("jkl", getIntent().getExtras().getString("jklm"));
+                i.putExtra("namaayah", getIntent().getExtras().getString("ayh"));
+                i.putExtra("namaibu", getIntent().getExtras().getString("ibu"));
                 i.putExtra("bb_",bb.getText().toString());
                 startActivity(i);
             }

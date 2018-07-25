@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import id.tiregdev.si_pemandu.Activity.cari_data_pendaftaran;
 import id.tiregdev.si_pemandu.Activity.data_anak;
 import id.tiregdev.si_pemandu.R;
 
@@ -39,8 +41,12 @@ public class cari_data_anak extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), data_anak.class);
-                i.putExtra("_niks",niks.getText().toString().trim());
-                startActivity(i);
+                i.putExtra("_niks", niks.getText().toString());
+                if (niks.getText().toString().isEmpty()) {
+                    Toast.makeText(getContext(), "Error,, harap isi semua data!", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(i);
+                }
             }
         });
         return v;

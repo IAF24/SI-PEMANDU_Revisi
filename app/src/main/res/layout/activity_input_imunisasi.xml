@@ -52,15 +52,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Vaksin"
+                android:textColor="@color/ijo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <Spinner
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/vaksin"
-                android:background="@drawable/bg_editext"
-                android:layout_marginTop="10dp"
-                android:hint="Vaksin"
-                android:padding="10dp"/>
+                android:popupBackground="#FFFF"
+                />
 
             <Button
                 android:id="@+id/save"
@@ -70,7 +75,7 @@
                 android:text="SAVE"
                 android:textColor="@color/putih"
                 android:textSize="16sp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"/>
 
         </LinearLayout>
